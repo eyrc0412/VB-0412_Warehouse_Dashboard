@@ -1,3 +1,3 @@
 #welcome
 
-[more info](Readme.md)
+[more info](README.md)
