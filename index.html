@@ -62,7 +62,6 @@ function refreshTable() {
 
 		for (var i = 0; i < data.feed.entry.length; ++i) {
 			var myData_map, myData_order;
-
 			trHTML += '<tr><td>' + data.feed.entry[i].gsx$orderid.$t +
 				'</td><td>' + data.feed.entry[i].gsx$item.$t +
 				'</td><td>' + data.feed.entry[i].gsx$priority.$t +
@@ -75,7 +74,6 @@ function refreshTable() {
 				'</td><td>' + data.feed.entry[i].gsx$shippeddateandtime.$t +
 				'</td><td>' + data.feed.entry[i].gsx$timetaken.$t +
 				'</td></tr>';
-
 		}
 
 		console.log(trHTML);
