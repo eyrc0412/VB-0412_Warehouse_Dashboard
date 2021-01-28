@@ -22,6 +22,12 @@
                 <th>Priority</th>
                 <th>Quantity</th>
                 <th>City</th>
+                <th>Dispatched</th>
+                <th>Shipped</th>
+                <th>Order Date and Time</th>
+                <th>Dispatch Date and Time</th>
+                <th>Shipped Date and Time</th>
+                <th>Time Taken</th>                
             </tr>
             <tbody id="tableContent">
             </tbody>
@@ -59,6 +65,12 @@
                         	  '</td><td>' + data.feed.entry[i].gsx$priority.$t + 
                         	  '</td><td>' + data.feed.entry[i].gsx$quantity.$t + 
                         	  '</td><td>'  + data.feed.entry[i].gsx$city.$t + 
+                              '</td><td>'  + data.feed.entry[i].gsx$Dispatched.$t +
+                              '</td><td>'  + data.feed.entry[i].gsx$Shipped.$t +
+                              '</td><td>'  + data.feed.entry[i].gsx$Order Date and Time.$t +
+                              '</td><td>'  + data.feed.entry[i].gsx$Dispatch Date and Time.$t +
+                              '</td><td>'  + data.feed.entry[i].gsx$Shipped Date and Time.$t +
+                              '</td><td>'  + data.feed.entry[i].gsx$Time Takend.$t +
                         	  '</td></tr>';
 
                 }
