@@ -59,6 +59,11 @@ $(document).ready(function () {
 
 	// Fetch every 1 second
 	setInterval(refreshTable, 1000);
+	// Fetch the initial Map
+        refreshMap();
+    
+        // Fetch every 5 second
+        setInterval(refreshMap, 5000);
 });
 
 function refreshTable() {
