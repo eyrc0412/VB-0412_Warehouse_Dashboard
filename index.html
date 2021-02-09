@@ -59,7 +59,7 @@
     // Fetch the initial Chart
     refreshChart();
     // Fetch every 5 second
-    setInterval(refreshChart, 6000);
+    setInterval(refreshChart, 8000);
   });
   google.charts.load("current", {packages:['corechart']});
   google.charts.setOnLoadCallback(refreshChart);
@@ -121,12 +121,12 @@ $(document).ready(function () {
 	refreshTable();
 
 	// Fetch every 1 second
-	setInterval(refreshTable, 1000);
+	setInterval(refreshTable, 7000);
 	// Fetch the initial Map
         refreshMap();
     
         // Fetch every 1 second
-        setInterval(refreshMap, 5000);
+        setInterval(refreshMap, 8000);
 });
 
 function refreshTable() {
