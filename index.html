@@ -71,7 +71,7 @@
     $.getJSON('https://spreadsheets.google.com/feeds/list/1pLeDN3GAE9jYX_TKIZ2sESA4Pu35QnGlP_1isgSKeR4/2/public/full?alt=json', function(data) {
       for (var i = 0; i < data.feed.entry.length; ++i) {
         var json_data = {
-          "OderID" : data.feed.entry[i].gsx$orderid.$t,
+          "OrderID" : data.feed.entry[i].gsx$orderid.$t,
           "TimeTaken": parseFloat(data.feed.entry[i].gsx$timetaken.$t),
           "Priority": data.feed.entry[i].gsx$priority.$t
           };
@@ -176,7 +176,7 @@ function refreshMap() {
 
             var json_data = {
                 "City": data.feed.entry[i].gsx$city.$t,
-                "Order ID" : data.feed.entry[i].gsx$orderid.$t,
+                "OrderID" : data.feed.entry[i].gsx$orderid.$t,
                 "Item" : data.feed.entry[i].gsx$item.$t,
                 "Latitude": parseFloat(data.feed.entry[i].gsx$latitude.$t),
                 "Longitude": parseFloat(data.feed.entry[i].gsx$longitude.$t)
