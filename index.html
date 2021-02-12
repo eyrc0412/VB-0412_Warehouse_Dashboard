@@ -199,13 +199,7 @@ function refreshMap() {
             }
                        
             for (var j = 0; j < jsonDataObject.length; j++) {
-                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)));
-                marker.bindPopup(jsonDataObject[j].City, {
-                        autoClose: false
-                });
-                map.addLayer(marker);
-		map.addLayer(marker_colour[j]);
-                marker.on('click', onClick_Marker)
+                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude))) ,marker_colour[j];
                 // Attach the corresponding JSON data to your marker:
                 marker.myJsonData =jsonDataObject[j];
         
