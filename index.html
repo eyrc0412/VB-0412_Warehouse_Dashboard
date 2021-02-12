@@ -170,7 +170,6 @@ function refreshMap() {
          
         var map = L.map('map').setView([20.5937, 78.9629], 4);
         var jsonDataObject =[];
-        var marker_color = [];
         $.getJSON('https://spreadsheets.google.com/feeds/list/1pLeDN3GAE9jYX_TKIZ2sESA4Pu35QnGlP_1isgSKeR4/5/public/full?alt=json', function(data) {
         for (var i = 0; i < data.feed.entry.length; ++i) {
 
@@ -185,21 +184,8 @@ function refreshMap() {
             };
             jsonDataObject.push(json_data);
 		
-	    for(var j in jsonDataObject){
-	      if(jsonDataObject[j].Disstatus == 'YES' && jsonDataObject[j].Shipstatus == 'YES' ){
-                var color =  '#2AAD27';
-                }
-              else if(jsonDataObject[j].Disstatus == 'YES'){
-                var color =  '#CAC428';
-                }
-              else {
-                var color =  '#CB2B3E';
-                }
-              marker_color.push(color)
-            }
-                       
             for (var j = 0; j < jsonDataObject.length; j++) {
-                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude))) ,marker_colour[j];
+                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)));
                 // Attach the corresponding JSON data to your marker:
                 marker.myJsonData =jsonDataObject[j];
         
