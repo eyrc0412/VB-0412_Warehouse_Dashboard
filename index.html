@@ -78,7 +78,7 @@
           jsonDataObject.push(json_data);
       };
       // Setting color for the coloumns of graph according to priority of items
-      for(var j in jsonDataObject){
+      for(var j in jsonDataObject)
         if(jsonDataObject[j].Priority == 'HP'){
           var color =  '#FF0000';
           }
@@ -170,7 +170,7 @@ function refreshMap() {
          
         var map = L.map('map').setView([20.5937, 78.9629], 4);
         var jsonDataObject =[];
-
+        var marker_color = [];
         $.getJSON('https://spreadsheets.google.com/feeds/list/1pLeDN3GAE9jYX_TKIZ2sESA4Pu35QnGlP_1isgSKeR4/5/public/full?alt=json', function(data) {
         for (var i = 0; i < data.feed.entry.length; ++i) {
 
@@ -178,17 +178,33 @@ function refreshMap() {
                 "City": data.feed.entry[i].gsx$city.$t,
                 "OderID" : data.feed.entry[i].gsx$orderid.$t,
                 "Item" : data.feed.entry[i].gsx$item.$t,
+		"Disstatus": data.feed.entry[i].gsx$orderdispatched.$t,
+		"Shipstatus": data.feed.entry[i].gsx$ordershipped.$t,  
                 "Latitude": parseFloat(data.feed.entry[i].gsx$latitude.$t),
                 "Longitude": parseFloat(data.feed.entry[i].gsx$longitude.$t)
             };
             jsonDataObject.push(json_data);
-                
+		
+	    for(var j in jsonDataObject){
+	      if(jsonDataObject[j].Disstatus == 'YES' && jsonDataObject[j].Shipstatus == 'YES' ){
+                var color =  '#00FF00';
+                }
+              else if(jsonDataObject[j].Disstatus == 'YES'){
+                var color =  '#FFFF00';
+                }
+              else {
+                var color =  '#FF0000';
+                }
+              marker_color.push(color)
+            }
+                       
             for (var j = 0; j < jsonDataObject.length; j++) {
                 var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)));
                 marker.bindPopup(jsonDataObject[j].City, {
                         autoClose: false
                 });
                 map.addLayer(marker);
+		map.addLayer(marker_colour[j]);
                 marker.on('click', onClick_Marker)
                 // Attach the corresponding JSON data to your marker:
                 marker.myJsonData =jsonDataObject[j];
