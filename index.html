@@ -199,7 +199,7 @@ function refreshTable() {
                         var marker = e.target;
                         popup = L.popup()
                         .setLatLng(marker.getLatLng())
-                        .setContent("Order ID: " + marker.myJsonData.OderID + " || Item: " +   marker.myJsonData.Item +"\n"+"Dispatch: " + marker.myJsonData.Disstatus + "|| Shipped: " + marker.myJsonData.Shipped)
+                        .setContent("Order ID: " + marker.myJsonData.OderID +"\n"+"Dispatch: " + marker.myJsonData.Disstatus + "|| Shipped: " + marker.myJsonData.Shipped)
                         .openOn(map);
                     }
 
