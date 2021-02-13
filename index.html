@@ -182,49 +182,10 @@ function refreshMap() {
                 "Latitude": parseFloat(data.feed.entry[i].gsx$latitude.$t),
                 "Longitude": parseFloat(data.feed.entry[i].gsx$longitude.$t)
             };
-            jsonDataObject.push(json_data);
-            
-            var greenIcon = new L.Icon({
-              iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-              shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34],
-              shadowSize: [41, 41]
-            });	
-	   var redIcon = new L.Icon({
-             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
-             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-             iconSize: [25, 41],
-             iconAnchor: [12, 41],
-             popupAnchor: [1, -34],
-             shadowSize: [41, 41]
-           });
-	   var yellowIcon = new L.Icon({
-             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
-             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-             iconSize: [25, 41],
-             iconAnchor: [12, 41],
-             popupAnchor: [1, -34],
-             shadowSize: [41, 41]
-           });
-		
-	    for(var j in jsonDataObject){
-	      if(jsonDataObject[j].Disstatus == 'YES' && jsonDataObject[j].Shipstatus == 'YES' ){
-                var color = {icon: greenIcon} ;
-                }
-              else if(jsonDataObject[j].Disstatus == 'YES'){
-                var color = {icon: yellowIcon} ;
-                }
-              else {
-                var color = {icon: redIcon};
-                }
-              marker_color.push(color)
-            }
-		
+            jsonDataObject.push(json_data);		
             		
             for (var j = 0; j < jsonDataObject.length; j++) {
-                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)),marker_colour[j]);
+                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)),);
                 // Attach the corresponding JSON data to your marker:
                 marker.myJsonData =jsonDataObject[j];
         
