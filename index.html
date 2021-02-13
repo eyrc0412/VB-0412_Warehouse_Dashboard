@@ -68,7 +68,7 @@
     var jsonDataObject =[];
     var graph_arr = [['Order ID', 'Time Taken', { role: 'style' }]];
     var bar_color = [];
-    $.getJSON('YOUR JSON ENDPOINT', function(data) {
+    $.getJSON('https://spreadsheets.google.com/feeds/list/1pLeDN3GAE9jYX_TKIZ2sESA4Pu35QnGlP_1isgSKeR4/5/public/full?alt=json', function(data) {
       for (var i = 0; i < data.feed.entry.length; ++i) {
         var json_data = {
           "OderID" : data.feed.entry[i].gsx$orderid.$t,
