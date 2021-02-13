@@ -208,23 +208,10 @@ function refreshTable() {
                 "Latitude": parseFloat(data.feed.entry[i].gsx$latitude.$t),
                 "Longitude": parseFloat(data.feed.entry[i].gsx$longitude.$t)
             };
-            jsonDataObject.push(json_data);       
-
-	for(var j in jsonDataObject){
-	    function determineColor(j) 
-	    if(jsonDataObject[j].Disstatus == 'YES' && jsonDataObject[j].Shipstatus == 'YES' ){
-               return greenIcon ;
-               }
-            else if(jsonDataObject[j].Disstatus == 'YES'){
-               return yellowIcon ;
-               }
-            else{
-               return redIcon ;
-               }	    
-            } 				
+            jsonDataObject.push(json_data);       				
 		
             for (var j = 0; j < jsonDataObject.length; j++) {
-                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)),{icon:determineColor(j)});
+                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)),{icon:redIcon});
                 marker.bindPopup(jsonDataObject[j].City, {
                         autoClose: false
                 });
