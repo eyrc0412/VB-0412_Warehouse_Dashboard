@@ -225,7 +225,7 @@ function refreshTable() {
             }         		
 		
             for (var j = 0; j < jsonDataObject.length; j++) {
-                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)),{icon:determineColor(i)});
+                var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)),{icon:determineColor(j)});
                 marker.bindPopup(jsonDataObject[j].City, {
                         autoClose: false
                 });
