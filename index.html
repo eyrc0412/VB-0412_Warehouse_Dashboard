@@ -178,6 +178,8 @@ function refreshTable() {
                 "City": data.feed.entry[i].gsx$city.$t,
                 "OderID" : data.feed.entry[i].gsx$orderid.$t,
                 "Item" : data.feed.entry[i].gsx$item.$t,
+		"Disstatus" : data.feed.entry[i].gsx$orderdispatched.$t,
+		"Shipstatus" : data.feed.entry[i].gsx$ordershipped.$t,    
                 "Latitude": parseFloat(data.feed.entry[i].gsx$latitude.$t),
                 "Longitude": parseFloat(data.feed.entry[i].gsx$longitude.$t)
             };
@@ -197,7 +199,7 @@ function refreshTable() {
                         var marker = e.target;
                         popup = L.popup()
                         .setLatLng(marker.getLatLng())
-                        .setContent("Order ID: " + marker.myJsonData.OderID + " || Item: " +   marker.myJsonData.Item)
+                        .setContent("Order ID: " + marker.myJsonData.OderID + " || Item: " +   marker.myJsonData.Item +"\n"+"Dispatch: " + marker.myJsonData.Disstatus + "|| Shipped: " + marker.myJsonData.Shipped)
                         .openOn(map);
                     }
 
