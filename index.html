@@ -68,7 +68,7 @@
     var jsonDataObject =[];
     var graph_arr = [['Order ID', 'Time Taken', { role: 'style' }]];
     var bar_color = [];
-    $.getJSON('https://spreadsheets.google.com/feeds/list/1pLeDN3GAE9jYX_TKIZ2sESA4Pu35QnGlP_1isgSKeR4/5/public/full?alt=json', function(data) {
+    $.getJSON('YOUR JSON ENDPOINT', function(data) {
       for (var i = 0; i < data.feed.entry.length; ++i) {
         var json_data = {
           "OderID" : data.feed.entry[i].gsx$orderid.$t,
@@ -78,7 +78,7 @@
           jsonDataObject.push(json_data);
       };
       // Setting color for the coloumns of graph according to priority of items
-      for(var j in jsonDataObject)
+      for(var j in jsonDataObject){
         if(jsonDataObject[j].Priority == 'HP'){
           var color =  '#FF0000';
           }
