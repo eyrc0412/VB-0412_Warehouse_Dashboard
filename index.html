@@ -195,7 +195,7 @@ function refreshTable() {
                      shadowSize: [41, 41]
                    });	
                 }
-              else if(jsonDataObject[j].Disstatus == 'YES'){
+              else if(jsonDataObject[j].Disstatus == 'YES' && jsonDataObject[j].Shipstatus == 'NO'){
                 var iconcolor = new L.Icon({
                      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
                      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
