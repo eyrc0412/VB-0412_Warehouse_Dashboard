@@ -184,8 +184,8 @@ function refreshTable() {
             };
             jsonDataObject.push(json_data);   
 		
-	    for(var j in jsonDataObject){
-	      if(jsonDataObject[j].Disstatus == 'YES' && jsonDataObject[j].Shipstatus == 'YES' ){
+            for (var j = 0; j < jsonDataObject.length; j++) {    
+                if(jsonDataObject[j].Disstatus == 'YES' && jsonDataObject[j].Shipstatus == 'YES' ){
                 var iconcolor =  new L.Icon({
                      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
                      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -215,11 +215,6 @@ function refreshTable() {
                      shadowSize: [41, 41]
                    });
 	        }
-            }		
-		
-		
-		
-            for (var j = 0; j < jsonDataObject.length; j++) {
                 var marker = L.marker(L.latLng(parseFloat(jsonDataObject[j].Latitude), parseFloat(jsonDataObject[j].Longitude)),{icon:iconcolor});
                 marker.bindPopup(jsonDataObject[j].City, {
                         autoClose: false
